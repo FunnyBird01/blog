@@ -1,5 +1,6 @@
 ---
 title: "C盘清理"
+cover: images/leetcode/cover.png
 ---
 # WinSxS 更新清理
 1. 管理员身份打开命令提示符 / PowerShell

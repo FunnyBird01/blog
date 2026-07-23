@@ -2,6 +2,7 @@
 title: Markdown入门详解
 categories:
   - 开发必备
+cover: images/leetcode/cover.png
 ---
 # 一级标题
 ![alt text](/images/logo.png)
