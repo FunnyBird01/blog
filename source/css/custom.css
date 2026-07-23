@@ -1,8 +1,15 @@
-/* 全屏头部容器基础定位 */
+/* 全屏头部容器基础定位 - 强制透明背景 */
 #page-header.full_page {
   position: relative !important;
   overflow: hidden;
   background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* 当有视频顶图时，强制移除所有背景色 */
+#page-header.full_page:not(.not-top-img) {
+  background: transparent !important;
+  background-color: transparent !important;
 }
 
 /* 头部半透明黑色遮罩 ::before 只做背景，不占用文字伪元素 */
@@ -81,7 +88,7 @@
   z-index: 2;
 }
 
-/* 首页背景视频样式（你原有视频代码保留） */
+/* 视频顶图样式 - 视频作为顶图而不是背景图 */
 .banner-video {
   position: absolute;
   top: 0;
@@ -91,4 +98,9 @@
   object-fit: cover;
   z-index: 0;
   pointer-events: none;
+}
+
+/* 当使用视频顶图时，header 的背景设为透明 */
+#page-header.full_page.video-banner {
+  background: transparent !important;
 }

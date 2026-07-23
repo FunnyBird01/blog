@@ -75,6 +75,21 @@ default_top_img:
 # The banner image of index page
 index_img: #/images/Background.png
 
+# Video banner settings
+# Set video as top image instead of background image
+video_banner:
+  enable: true
+  # Video path, relative to source directory
+  url: /blog/video/bg.mp4
+  # Enable autoplay
+  autoplay: true
+  # Enable loop
+  loop: true
+  # Enable mute
+  muted: true
+  # Enable playsinline for mobile
+  playsinline: true
+
 # The banner image of archive page
 archive_img:
 
@@ -1075,24 +1090,8 @@ css_prefix: true
 # Insert the code to head (before '</head>' tag) and the bottom (before '</body>' tag)
 inject:
   head:
-    - <link rel="stylesheet" href="/css/custom.css">
+    - <link rel="stylesheet" href="/blog/css/custom.css">
     - <style>#aside .card-author .avatar-img{transition:none !important;transform:rotate(0deg) !important;}#aside .card-author .avatar-img:hover{transform:rotate(0deg) !important;}</style>
-    - <script>
-        document.addEventListener('DOMContentLoaded', function() {
-          var video = document.createElement('video');
-          video.className = 'banner-video';
-          video.src = '/video/bg.mp4';
-          video.autoplay = true;
-          video.muted = true;
-          video.loop = true;
-          video.playsInline = true;
-
-          var header = document.getElementById('page-header');
-          if (header) {
-            header.insertBefore(video, header.firstChild);
-          }
-        });
-      </script>
   bottom:
 
 # CDN Settings
@@ -1122,7 +1121,7 @@ CDN:
     # artalk_css:
     # artalk_js:
     # blueimp_md5:
-    # busuanzi:
+    busuanzi: https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/js/busuanzi.pure.mini.js
     # canvas_fluttering_ribbon:
     # canvas_nest:
     # canvas_ribbon:
