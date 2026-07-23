@@ -1,0 +1,94 @@
+/* 全屏头部容器基础定位 */
+#page-header.full_page {
+  position: relative !important;
+  overflow: hidden;
+  background: transparent !important;
+}
+
+/* 头部半透明黑色遮罩 ::before 只做背景，不占用文字伪元素 */
+#page-header.full_page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.25);
+  z-index: 1;
+}
+
+/* 隐藏原生site-title，不再使用它自带文字 */
+#page-header.full_page #site-title {
+  visibility: hidden !important;
+  position: relative;
+  font-size: 2.5rem;
+  text-align: center;
+  opacity: 0;
+  animation: fadeInUp 1.5s ease-out forwards;
+}
+
+/* 主标题【欢迎来到我的博客】用 ::after 独立层，不受父opacity影响，纯白 */
+#page-header.full_page::after {
+  content: "欢迎来到我的博客";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 42%;
+  white-space: nowrap;
+  width: 100%;
+  text-align: center;
+  color: #ffffff !important;
+  font-size: 2.8rem;
+  z-index: 4;
+  opacity: 0;
+  animation: fadeInUp 1.5s ease-out forwards;
+}
+
+/* 标题上浮淡入动画（原有动画保留不变） */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========== 副标题【共同进步】完整样式 ========== */
+#page-header.full_page #site-subtitle {
+  opacity: 0;
+  animation: subFade 2s ease forwards;
+  animation-delay: 0.5s;
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  color: #ffffff !important;
+  text-shadow: none;
+  font-size: 24px;
+}
+
+/* 副标题淡入动画 */
+@keyframes subFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* 信息层层级，放在遮罩上方 */
+#page-header.full_page .page-header-info {
+  position: relative;
+  z-index: 2;
+}
+
+/* 首页背景视频样式（你原有视频代码保留） */
+.banner-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
+}
