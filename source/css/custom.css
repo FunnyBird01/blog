@@ -12,6 +12,14 @@
   background-color: transparent !important;
 }
 
+/* 强制覆盖主题默认的蓝色背景 */
+#page-header.full_page,
+#page-header.full_page.fixed,
+#page-header.full_page.nav-fixed {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
 /* 头部半透明黑色遮罩 ::before 只做背景，不占用文字伪元素 */
 #page-header.full_page::before {
   content: "";
