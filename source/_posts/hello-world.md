@@ -2,6 +2,7 @@
 title: Hello World
 categories: [Hexo博客]
 tags: [Hexo]
+cover: images/leetcode/cover.png
 ---
 tags:[]Hexo
 ---
