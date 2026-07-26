@@ -23,8 +23,8 @@ menu:
   归档: /archives/ || fas fa-archive
   #标签: /tags/ || fas fa-tags
   分类: /categories/ || fas fa-folder-open
+  音乐: /music/ || fas fa-music
   #更多||fas fa-plus|hide:
-    #音乐: /music/ || fas fa-music
     #影视: /movie/ || fas fa-video
   关于: /about/ || fas fa-user
 
@@ -167,7 +167,7 @@ post_meta:
 # The position of site info, eg: 300px/300em/300rem/10%
 index_site_info_top:
 # The height of top_img, eg: 300px/300em/300rem
-index_top_img_height:
+index_top_img_height: 70vh
 
 # The subtitle on homepage
 subtitle:
@@ -1016,15 +1016,31 @@ note:
 
 # https://github.com/MoOx/pjax
 pjax:
-  enable: false
+  enable: true
   # Exclude the specified pages from pjax, such as '/music/'
   exclude:
     # - /xxxxxx/
 
 # Inject the css and script (aplayer/meting)
 aplayerInject:
-  enable: false
+  enable: true
   per_page: true
+
+# Global APlayer settings
+aplayer:
+  enable: true
+  # Fixed player position: bottom / top
+  fixed: bottom
+  theme: '#49b1f5'
+  autoplay: false
+  mutex: true
+  listFolded: true
+  listMaxHeight: 300
+  audio:
+    - name: '生活没有同花顺'
+      artist: '未知歌手'
+      url: '/music/audio/生活没有同花顺.mp3'
+      cover: '/images/avatar.png'
 
 # Snackbar - Toast Notification
 # https://github.com/polonel/SnackBar
@@ -1093,6 +1109,7 @@ inject:
     - <link rel="stylesheet" href="/css/custom.css">
     - <style>#aside .card-author .avatar-img{transition:none !important;transform:rotate(0deg) !important;}#aside .card-author .avatar-img:hover{transform:rotate(0deg) !important;}</style>
   bottom:
+    - <script>function initGlobalPlayer(){if(window.globalPlayer)return;if(typeof APlayer!=='undefined'){const ap=new APlayer({container:document.getElementById('global-aplayer'),fixed:false,autoplay:false,mutex:true,theme:'#49b1f5',loop:'all',order:'list',preload:'auto',volume:0.7,audio:[{name:'生活没有同花顺',artist:'未知歌手',url:'/music/audio/生活没有同花顺.mp3',cover:'/images/avatar.png'}]});window.globalPlayer=ap;}else{setTimeout(initGlobalPlayer,100);}}initGlobalPlayer();</script>
 
 # CDN Settings
 # Don't modify the following settings unless you know how they work

@@ -108,7 +108,88 @@
   pointer-events: none;
 }
 
+/* 手机端视频适配 - 调整object-fit以显示更多内容 */
+@media screen and (max-width: 768px) {
+  .banner-video {
+    object-fit: contain;
+    min-height: 70vh;
+    width: auto;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  /* 手机端头部高度 */
+  #page-header.full_page {
+    height: 70vh !important;
+    min-height: 400px;
+  }
+  
+  /* 手机端标题调整 */
+  #page-header.full_page::after {
+    font-size: 1.8rem;
+    top: 38%;
+  }
+  
+  #page-header.full_page #site-subtitle {
+    font-size: 18px;
+  }
+}
+
 /* 当使用视频顶图时，header 的背景设为透明 */
 #page-header.full_page.video-banner {
   background: transparent !important;
+}
+
+/* 全局播放器容器样式 - 填满导航栏 */
+#global-player-wrapper {
+  position: fixed;
+  top: 0;
+  left: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  z-index: 9999;
+}
+
+#global-player-wrapper .aplayer {
+  width: 60px;
+  height: 60px;
+  opacity: 0.8;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* 隐藏播放器其他元素，只保留播放按钮 */
+#global-player-wrapper .aplayer .aplayer-info {
+  display: none !important;
+}
+
+#global-player-wrapper .aplayer .aplayer-bar-wrap {
+  display: none !important;
+}
+
+#global-player-wrapper .aplayer .aplayer-list {
+  display: none !important;
+}
+
+#global-player-wrapper .aplayer .aplayer-pic {
+  width: 60px !important;
+  height: 60px !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+}
+
+/* 播放按钮样式 */
+#global-player-wrapper .aplayer .aplayer-pic .aplayer-button {
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  width: 28px !important;
+  height: 28px !important;
+}
+
+#global-player-wrapper .aplayer .aplayer-pic .aplayer-button svg {
+  width: 28px !important;
+  height: 28px !important;
 }

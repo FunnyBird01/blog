@@ -2,6 +2,7 @@
 title: "Hot100"
 categories: [leetcode]
 cover: images/leetcode/cover.png
+sticky: 1
 ---
 # 1. 哈希
 ## 1. 两数之和
