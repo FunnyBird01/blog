@@ -11,24 +11,17 @@
 
 nav:
   # Navigation bar logo image
-  logo: /images/logo.png
+  logo:
   display_title: true
   display_post_title: true
   # Whether to fix navigation bar
-  fixed: true
-
+  fixed: false
 
 menu:
-  首页: / || fas fa-home
-  归档: /archives/ || fas fa-archive
-  #标签: /tags/ || fas fa-tags
-  分类: /categories/ || fas fa-folder-open
-  音乐: /music/ || fas fa-music
-  #更多||fas fa-plus|hide:
-    #影视: /movie/ || fas fa-video
-  关于: /about/ || fas fa-user
-
-
+  # Home: / || fas fa-home
+  # List||fas fa-list:
+  #   Music: /music/ || fas fa-music
+  #   Movie: /movies/ || fas fa-video
 
 # --------------------------------------
 # Code Blocks Settings
@@ -36,8 +29,8 @@ menu:
 
 code_blocks:
   # Code block theme: darker / pale night / light / ocean / false
-  theme: darker
-  macStyle: true
+  theme: light
+  macStyle: false
   # Code block height limit (unit: px)
   height_limit: false
   word_wrap: false
@@ -47,48 +40,33 @@ code_blocks:
   language: true
   # true: shrink the code blocks | false: expand the code blocks | none: expand code blocks and hide the button
   shrink: false
-  fullpage: true
+  fullpage: false
 
 # Social media links
 # Formal:
 #   icon: link || the description || color
 social:
-   fab fa-github: https://github.com/FunnyBird01 || Github || '#24292e'
-   fas fa-envelope: mailto:1004737057@qq.com || Email || '#4a7dbe'
+  # fab fa-github: https://github.com/xxxxx || Github || '#24292e'
+  # fas fa-envelope: mailto:xxxxxx@gmail.com || Email || '#4a7dbe'
 
 # --------------------------------------
 # Image Settings
 # --------------------------------------
 
-favicon: /images/logo.png
+favicon: /img/favicon.png
 
 avatar:
-  img: /images/avatar.png
+  img: /img/butterfly-icon.png
   effect: false
 
 # Disable all banner images
-disable_top_img: 
+disable_top_img: false
 
 # If the banner of page not setting, it will show the default_top_img
 default_top_img:
 
 # The banner image of index page
-index_img: #/images/Background.png
-
-# Video banner settings
-# Set video as top image instead of background image
-video_banner:
-  enable: true
-  # Video path, relative to source directory (will be prefixed with root)
-  url: video/bg.mp4
-  # Enable autoplay
-  autoplay: true
-  # Enable loop
-  loop: true
-  # Enable mute
-  muted: true
-  # Enable playsinline for mobile
-  playsinline: true
+index_img:
 
 # The banner image of archive page
 archive_img:
@@ -115,7 +93,7 @@ footer_img: false
 # Website Background
 # Can set it to color, image URL or an array containing colors and/or image URLs
 # If an array is provided, a random background will be selected from the array on each load
-background: 
+background:
 
 cover:
   # Disable the cover or not
@@ -167,13 +145,13 @@ post_meta:
 # The position of site info, eg: 300px/300em/300rem/10%
 index_site_info_top:
 # The height of top_img, eg: 300px/300em/300rem
-index_top_img_height: 70vh
+index_top_img_height:
 
 # The subtitle on homepage
 subtitle:
-  enable: true
+  enable: false
   # Typewriter Effect
-  effect: false
+  effect: true
   # Customize typed.js
   # https://github.com/mattboldt/typed.js/#customization
   typed_option:
@@ -186,7 +164,7 @@ subtitle:
   # 3 - jinrishici.com
   source: false
   # If you close the typewriter effect, the subtitle will only show the first line of sub
-  sub: "共同进步"
+  sub:
 
 # Article layout on the homepage
 # 1: Cover on the left, info on the right
@@ -196,7 +174,7 @@ subtitle:
 # 5: Info displayed on the cover
 # 6: Masonry layout - Cover on top, info on the bottom
 # 7: Masonry layout - Info displayed on the cover
-index_layout: 4
+index_layout: 3
 
 # Display the article introduction on homepage
 # 1: description
@@ -206,7 +184,7 @@ index_layout: 4
 index_post_content:
   method: 3
   # If you set method to 2 or 3, the length need to config
-  length: 20
+  length: 500
 
 # --------------------------------------
 # Post Settings
@@ -214,8 +192,8 @@ index_post_content:
 
 toc:
   post: true
-  page: true
-  number: false
+  page: false
+  number: true
   expand: false
   # Only for post
   style_simple: false
@@ -230,10 +208,10 @@ post_copyright:
 
 # Sponsor/reward
 reward:
-  enable: fasle
-  text: 'If you like this article, please support me.'
+  enable: false
+  text:
   QR_code:
-     - img: /images/wechat.jpg
+    # - img: /img/wechat.jpg
     #   link:
     #   text: wechat
     # - img: /img/alipay.jpg
@@ -299,7 +277,7 @@ aside:
   button: true
   mobile: true
   # Position: left / right
-  position: left
+  position: right
   display:
     archive: true
     tag: true
@@ -308,15 +286,13 @@ aside:
     enable: true
     description:
     button:
-      enable: false
+      enable: true
       icon: fab fa-github
       text: Follow Me
-      link: https://github.com/FunnyBird01
+      link: https://github.com/xxxxxx
   card_announcement:
     enable: true
-    content: 网站开发、程序设计
-    
-    
+    content: This is my Blog
   card_recent_post:
     enable: true
     # If set 0 will show all
@@ -324,7 +300,6 @@ aside:
     # Sort: date / updated
     sort: date
     sort_order:
-  
   card_newest_comments:
     enable: false
     sort_order:
@@ -332,7 +307,6 @@ aside:
     # Unit: mins, save data to localStorage
     storage: 10
     avatar: true
-  
   card_categories:
     enable: true
     # If set 0 will show all
@@ -340,7 +314,6 @@ aside:
     # Choose: none / true / false
     expand: none
     sort_order:
-  
   card_tags:
     enable: true
     # If set 0 will show all
@@ -352,7 +325,6 @@ aside:
     # Sort of order. 1, asc for ascending; -1, desc for descending
     order: 1
     sort_order:
-  
   card_archives:
     enable: true
     # Type: monthly / yearly
@@ -829,9 +801,9 @@ preloader:
   # source
   # 1. fullpage-loading
   # 2. pace (progress bar)
-  source: 2
+  source: 1
   # pace theme (see https://codebyzach.github.io/pace/)
-  pace_css_url: /css/loading-bar.css
+  pace_css_url:
 
 # Page Transition
 enter_transitions: true
@@ -941,7 +913,7 @@ clickShowText:
 # https://github.com/francoischalifour/medium-zoom
 # https://fancyapps.com/fancybox/
 # Leave it empty if you don't need lightbox
-lightbox: fancybox
+lightbox:
 
 # --------------------------------------
 # Tag Plugins settings
@@ -1016,31 +988,15 @@ note:
 
 # https://github.com/MoOx/pjax
 pjax:
-  enable: true
+  enable: false
   # Exclude the specified pages from pjax, such as '/music/'
   exclude:
     # - /xxxxxx/
 
 # Inject the css and script (aplayer/meting)
 aplayerInject:
-  enable: true
+  enable: false
   per_page: true
-
-# Global APlayer settings
-aplayer:
-  enable: true
-  # Fixed player position: bottom / top
-  fixed: bottom
-  theme: '#49b1f5'
-  autoplay: false
-  mutex: true
-  listFolded: true
-  listMaxHeight: 300
-  audio:
-    - name: '生活没有同花顺'
-      artist: '未知歌手'
-      url: '/music/audio/生活没有同花顺.mp3'
-      cover: '/images/avatar.png'
 
 # Snackbar - Toast Notification
 # https://github.com/polonel/SnackBar
@@ -1106,10 +1062,9 @@ css_prefix: true
 # Insert the code to head (before '</head>' tag) and the bottom (before '</body>' tag)
 inject:
   head:
-    - <link rel="stylesheet" href="/css/custom.css">
-    - <style>#aside .card-author .avatar-img{transition:none !important;transform:rotate(0deg) !important;}#aside .card-author .avatar-img:hover{transform:rotate(0deg) !important;}</style>
+    # - <link rel="stylesheet" href="/xxx.css">
   bottom:
-    - <script>function initGlobalPlayer(){if(window.globalPlayer)return;if(typeof APlayer!=='undefined'){const ap=new APlayer({container:document.getElementById('global-aplayer'),fixed:false,autoplay:false,mutex:true,theme:'#49b1f5',loop:'all',order:'list',preload:'auto',volume:0.7,audio:[{name:'生活没有同花顺',artist:'未知歌手',url:'/music/audio/生活没有同花顺.mp3',cover:'/images/avatar.png'}]});window.globalPlayer=ap;}else{setTimeout(initGlobalPlayer,100);}}initGlobalPlayer();</script>
+    # - <script src="xxxx"></script>
 
 # CDN Settings
 # Don't modify the following settings unless you know how they work
@@ -1138,7 +1093,7 @@ CDN:
     # artalk_css:
     # artalk_js:
     # blueimp_md5:
-    busuanzi: https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/js/busuanzi.pure.mini.js
+    # busuanzi:
     # canvas_fluttering_ribbon:
     # canvas_nest:
     # canvas_ribbon:
