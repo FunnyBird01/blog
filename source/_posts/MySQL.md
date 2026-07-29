@@ -1,6 +1,6 @@
 ---
 title: "MySQL"
-cateagories: 
+categories: 
   - 开发必备
 cover: "https://cdn-icons-png.flaticon.com/128/16548/16548967.png"
 ---
