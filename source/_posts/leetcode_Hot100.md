@@ -63,6 +63,134 @@ class Solution:
             b=b.next if b else headA
         return a
 ```
+
+## 2.链表反转
+题目：给你单链表的头节点 head ，请你反转链表，并返回反转后的链表。
+思路：双指针，改变next
+![](https://pic.leetcode.cn/1604779288-fMPcDn-Picture2.png)
+```python
+class solution:
+    def reverseList(self,head:ListNode)->ListNode:
+        a,b=head,None
+        while a:
+            t=a.next
+            a.next=b
+            b=a
+            a=t
+        return b
+```
+
+## 3.回文链表
+题目：给你一个单链表的头节点 head ，请你判断该链表是否为回文链表。如果是，返回 true ；否则，返回 false 。
+思路：堆栈，将链表压入堆栈，然后依次弹出，判断是否相等
+```python
+class Solution:
+    def isPalindrome(self,head:ListNode)->bool:
+        stack=[]
+        a=head
+        while a:
+            stack.append(a)
+            a=a.next
+        b=head
+        while stack:
+            c=stack.pop()
+            if c.val!=b.val:
+                return False
+            b=b.next
+        return True
+```
+
+## 4.环形链表
+题目：给你一个链表的头节点 head ，判断链表中是否有环。
+思路：哈希表存储，判断有无重复结点
+```python
+class Solution:
+    def hasCycle(self,head:ListNode)->bool
+        a=set()     #集合 set 本质就是去掉 value 的哈希表
+        while head:
+            if head in a:
+                return True
+            a.add(head)
+            head=head.next
+        return False
+```
+
+## 5.合并两个有序链表
+题目：将两个升序链表合并为一个新的 升序 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。
+思路：先选一个小的结点出来，接上剩下的递归结果
+```python
+class Solution:
+    def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
+        if l1 is None:
+            return l2
+        elif l2 is None:
+            return l1
+        elif l1.val < l2.val:
+            l1.next = self.mergeTwoLists(l1.next,l2)
+            return l1
+        else:
+            l2.next = self,mergeTwoLists(l1,l2.next)
+            return l2
+
+            
+
+# 4.滑动窗口
+## 1. 最长无重复子串
+给定一个字符串 s ，请你找出其中不含有重复字符的最长子串的长度。
+思路：使用滑动窗口，窗口内无重复字符则更新最大长度，有重复字符则移动窗口的左边界，直到无重复字符。
+白话：我们维护一个窗口 [left, right]，满足硬性规则：✅ 窗口内所有字符，不存在重复，right 一直往右走（正常遍历字符串）；一旦发现当前字符char已经存在窗口里面：就要把窗口左边界left挪到【上一次这个字符位置的下一位】，把旧的重复字符踢出窗口。
+abca
+```python
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        dic,res,i={},0,-1
+        for j in range(len(s)):   #取长度记得用len
+            if s[j] in dir:
+                i=max(i,dic[s[j]])
+            dic[s[j]]=j
+            res=max(res,j-i)
+        return res
+sol = Solution()
+s = input("请输入字符串：")
+print(sol.lengthOfLongestSubstring(s))
+```
+
+# 暂存区
+## 合并两个有序数组
+给定两个有序数组 nums1 和 nums2 ，将 nums2 合并到 nums1 中，使 nums1 成为一个有序数组。
+```python
+class Solution:
+    def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
+        """
+        Do not return anything, modify nums1 in-place instead.
+        """
+        p1,p2,p=m-1,n-1,m+n-1
+        while p2>=0:
+            if p1>=0 and nums1[p1] >nums2[p2]:
+                nums1[p]=nums1[p1]
+                p1-=1
+            else:
+                nums1[p]=nums2[p2]
+                p2-=1
+            p-=1
+```
+## 去除驼峰子串
+给一个字符串，去除其中所有驼峰子串，并返回剩余的字符串。
+思路：用栈存储，是驼峰就弹出，不是驼峰就入栈
+```python
+class Solution:
+    def remove(self, s: str) -> str:
+        stack=[]
+        for c in s:
+            stack.append(c)
+            if len(stack)>=3：
+                if stack[1]==stack[3] and stack[1]!=stack[2]:
+                    stack.pop()
+                    stack.pop()
+                    stack.pop()
+        return "".join(stack)
+```
+
 {% note warning %}
 ⚠️ Warning
 这部分最好电脑浏览，大量的 Latex 语法会超出手机屏幕，而且内容体量过大，手机较卡顿

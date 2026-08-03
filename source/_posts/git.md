@@ -4,13 +4,14 @@ categories:
   - 开发必备
 cover: "https://cdn-icons-png.flaticon.com/128/6577/6577287.png"
 ---
-
+# git
+Git 是目前世界上最流行的分布式版本控制系统
+人话：对文件版本进行管理，每个文件版本进行留存，每个文件版本放在仓库里
+GitHub：文件的远程仓库，让大家能看到或者一起用
 # Git常用指令
 
 ## 初始化
-
 git init        #初始化仓库
-
 
 git config --global user.name "你的名字"        # 配置用户名/邮箱（只需要第一次用）
 git config --global user.email "你的邮箱"

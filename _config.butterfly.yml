@@ -1037,10 +1037,15 @@ aplayer:
   listFolded: true
   listMaxHeight: 300
   audio:
+    - name: '第57次取消发送'
+      artist: '未知歌手'
+      url: '/music/audio/第57次取消发送.mp3'
+      cover: '/images/avatar.png'
     - name: '生活没有同花顺'
       artist: '未知歌手'
       url: '/music/audio/生活没有同花顺.mp3'
       cover: '/images/avatar.png'
+
 
 # Snackbar - Toast Notification
 # https://github.com/polonel/SnackBar
@@ -1108,8 +1113,6 @@ inject:
   head:
     - <link rel="stylesheet" href="/css/custom.css">
     - <style>#aside .card-author .avatar-img{transition:none !important;transform:rotate(0deg) !important;}#aside .card-author .avatar-img:hover{transform:rotate(0deg) !important;}</style>
-  bottom:
-    - <script>function initGlobalPlayer(){if(window.globalPlayer)return;if(typeof APlayer!=='undefined'){const ap=new APlayer({container:document.getElementById('global-aplayer'),fixed:false,autoplay:false,mutex:true,theme:'#49b1f5',loop:'all',order:'list',preload:'auto',volume:0.7,audio:[{name:'生活没有同花顺',artist:'未知歌手',url:'/music/audio/生活没有同花顺.mp3',cover:'/images/avatar.png'}]});window.globalPlayer=ap;}else{setTimeout(initGlobalPlayer,100);}}initGlobalPlayer();</script>
 
 # CDN Settings
 # Don't modify the following settings unless you know how they work

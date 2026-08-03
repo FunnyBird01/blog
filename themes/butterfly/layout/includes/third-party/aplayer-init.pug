@@ -1,0 +1,25 @@
+//- 自动生成全局播放器初始化代码，从配置中读取歌曲列表
+if theme.aplayer && theme.aplayer.enable && theme.aplayer.audio
+  - const audioList = JSON.stringify(theme.aplayer.audio)
+  script.
+    function initGlobalPlayer() {
+      if (window.globalPlayer) return;
+      if (typeof APlayer !== 'undefined') {
+        const ap = new APlayer({
+          container: document.getElementById('global-aplayer'),
+          fixed: false,
+          autoplay: false,
+          mutex: true,
+          theme: '#49b1f5',
+          loop: 'all',
+          order: 'list',
+          preload: 'auto',
+          volume: 0.7,
+          audio: !{audioList}
+        });
+        window.globalPlayer = ap;
+      } else {
+        setTimeout(initGlobalPlayer, 100);
+      }
+    }
+    initGlobalPlayer();

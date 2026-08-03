@@ -42,6 +42,7 @@ html(lang=config.language data-theme=theme.display_mode class=htmlClassHideAside
     // Global APlayer - 放在#body-wrap外部，避免PJAX替换
     #global-player-wrapper.no-destroy
       div#global-aplayer(class="aplayer")
+    include ./third-party/aplayer-init.pug
 
     #body-wrap(class=pageType)
       include ./header/index.pug
