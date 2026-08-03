@@ -1,5 +1,5 @@
 ---
-title: "MySQL"
+title: "git"
 categories:
   - 开发必备
 cover: "https://cdn-icons-png.flaticon.com/128/6577/6577287.png"
