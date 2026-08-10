@@ -1,5 +1,6 @@
 ---
 title: "C盘清理"
+date: 2026-07-23 15:38:09
 cover: images/leetcode/cover.png
 ---
 # WinSxS 更新清理

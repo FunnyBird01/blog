@@ -11,7 +11,7 @@
 
 nav:
   # Navigation bar logo image
-  logo: /images/logo.png
+  logo: https://cdn.jsdelivr.net/gh/FunnyBird01/hexo-images@main/img/38ffc44b90e84b7a9c235016b131436b.png
   display_title: true
   display_post_title: true
   # Whether to fix navigation bar
@@ -23,7 +23,7 @@ menu:
   归档: /archives/ || fas fa-archive
   #标签: /tags/ || fas fa-tags
   分类: /categories/ || fas fa-folder-open
-  音乐: /music/ || fas fa-music
+  #音乐: /music/ || fas fa-music
   #更多||fas fa-plus|hide:
     #影视: /movie/ || fas fa-video
   关于: /about/ || fas fa-user
@@ -60,10 +60,10 @@ social:
 # Image Settings
 # --------------------------------------
 
-favicon: /images/logo.png
+favicon: https://cdn.jsdelivr.net/gh/FunnyBird01/hexo-images@main/img/38ffc44b90e84b7a9c235016b131436b.png
 
 avatar:
-  img: /images/avatar.png
+  img: https://cdn.jsdelivr.net/gh/FunnyBird01/hexo-images@main/img/avatar.png
   effect: false
 
 # Disable all banner images
@@ -1021,7 +1021,7 @@ pjax:
   exclude:
     # - /xxxxxx/
 
-# Inject the css and script (aplayer/meting)
+# Inject the css and script (aplayer)
 aplayerInject:
   enable: true
   per_page: true
@@ -1040,11 +1040,7 @@ aplayer:
     - name: '第57次取消发送'
       artist: '未知歌手'
       url: '/music/audio/第57次取消发送.mp3'
-      cover: '/images/avatar.png'
-    - name: '生活没有同花顺'
-      artist: '未知歌手'
-      url: '/music/audio/生活没有同花顺.mp3'
-      cover: '/images/avatar.png'
+      cover: 'https://cdn.jsdelivr.net/gh/FunnyBird01/hexo-images@main/img/avatar.png'
 
 
 # Snackbar - Toast Notification

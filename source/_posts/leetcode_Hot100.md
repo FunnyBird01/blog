@@ -1,7 +1,8 @@
 ---
 title: "Hot100"
+date: 2026-07-23 15:38:09
 categories: [leetcode]
-cover: images/leetcode/cover.png
+cover: https://cdn.jsdelivr.net/gh/FunnyBird01/hexo-images@main/img/cover.png
 sticky: 1
 ---
 # 1. 哈希
@@ -63,7 +64,6 @@ class Solution:
             b=b.next if b else headA
         return a
 ```
-
 ## 2.链表反转
 题目：给你单链表的头节点 head ，请你反转链表，并返回反转后的链表。
 思路：双指针，改变next
@@ -131,10 +131,127 @@ class Solution:
         else:
             l2.next = self,mergeTwoLists(l1,l2.next)
             return l2
+```        
+# 二叉树
 
-            
+## 1.二叉树的中序遍历
+题目：给定一个二叉树的根节点 root ，返回它的 中序 遍历。
+思路：递归，左子树->根节点->右子树
+```python
+class Solution:
+    def inorderTraversal(self, root: TreeNode) -> List[int]:
+        if root is None:
+            return []
+        return self.inorderTraversal(root.left)+[root.val]+self.inorderTraversal(root.right)    #拼接：左子树->根节点->右子树
+```
+优化：使用栈的迭代，将递归转换为循环
+```python
+class Solution:
+    def inorderTraversal(self, root: TreeNode) -> List[int]:
+        if root is None:
+            return []
+        stack=[]
+        res=[]
+        a=root
+        while a or stack:
+            while a:
+                stack.append(a)
+                a=a.left
+            a=stack.pop()
+            res.append(a.val)
+            a=a.right
+        return res
+```
+## 2.二叉树的最大深度
+题目：给定一个二叉树的根节点 root ，返回该最大深度。
+![](https://assets.leetcode.com/uploads/2020/11/26/tmp-tree.jpg)
+> 二叉树的 最大深度 是指从根节点到最远叶子节点的最长路径上的节点数。
 
-# 4.滑动窗口
+思路：递归，左子树+右子树+根节点
+```python
+class Solution:
+    def maxDepth(self, root: TreeNode) -> int:
+        if root is None:
+            return 0
+        return max(self.maxDepth(root.left),self.maxDepth(root.right))+1
+```
+
+## 3.翻转二叉树
+题目：翻转一棵二叉树，将树的每个节点的左子树和右子树交换。
+![](https://assets.leetcode.com/uploads/2021/03/14/invert1-tree.jpg)
+思路：递归，交换每个节点的左子树和右子树
+```python
+class Solution:
+    def invertTree(self, root: TreeNode) -> TreeNode:
+        if root is None:
+            return None
+        root.left,root.right=self.invertTree(root.right),self.invertTree(root.left)
+        #Python 执行多变量赋值永远遵守：先把等号右边所有函数全部运算完毕，之后再赋值左侧属性
+        return root
+```
+
+## 4.对称二叉树
+题目：给你一个二叉树的根节点 root，检查它是否轴对称。
+！[](https://pic.leetcode.cn/1698026966-JDYPDU-image.png)
+思路：递归，判断左子树和右子树是否对称
+```python
+class Solution:
+    def isSymmetric(self,root: Optional[TreeNode])->bool:
+        if not root:
+            return True
+        def ifmirror(left,right):
+            if not left and not right:
+                return True
+            if not left or not right or left.val!=right.val:
+                return False
+            return ifmirror(left.left,right.right) and ifmirror(left.right,right.left)
+        return ifmirror(root.left,root.right)
+```
+
+## 5.将有序数组转换为二叉搜索树
+题目：给你一个整数数组 nums ，其中元素已经按 升序 排列，请你将其转换为一棵 平衡 二叉搜索树。
+> 平衡二叉搜索树是一棵二叉搜索树，其高度平衡的定义是：每个节点的左右两个子树的高度差的绝对值不超过 1 。
+
+> 搜索树：每个节点，左边所有小孩全都比它小；右边所有小孩全都比它大
+
+思路：递归，将数组的中间元素作为根节点，左子树为数组的前半部分，右子树为数组的后半部分
+```python
+class Solution:
+    def sortedArrayToBST(self, nums: List[int]) -> TreeNode:
+        if not nums:
+            return None
+        mid=len(nums)//2
+        root=TreeNode(nums[mid])
+        root.left=self.sortedArrayToBST(nums[:mid])
+        root.right=self.sortedArrayToBST(nums[mid+1:])
+        return root
+```
+
+# 二分查找
+
+## 1.搜索插入位置
+题目：给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。
+
+```python
+#内置库
+class Solution:
+    def searchInsert(self,nums:List[int],target:int)->int:
+        return bisect_left(nums,target)
+
+#二分查找
+class Solution:
+    def searchInsert(self, nums: List[int], target: int) -> int:
+        l, r = 0, len(nums)
+        while l < r:
+            mid = (l + r) // 2
+            if nums[mid] < target:
+                l = mid + 1
+            else:
+                r = mid
+        return l
+```
+
+# 滑动窗口
 ## 1. 最长无重复子串
 给定一个字符串 s ，请你找出其中不含有重复字符的最长子串的长度。
 思路：使用滑动窗口，窗口内无重复字符则更新最大长度，有重复字符则移动窗口的左边界，直到无重复字符。
@@ -155,7 +272,36 @@ s = input("请输入字符串：")
 print(sol.lengthOfLongestSubstring(s))
 ```
 
+# 栈
+
+## 1. 有效的括号
+
+题目：给定一个只包括 '('，')'，'{'，'}'，'['，']' 的字符串 s ，判断字符串是否有效。
+有效：左与右相同闭合，且必须以正确顺序闭合。
+思路：用栈存储，是左括号就入栈，不是括号就弹出，最后判断栈是否为空
+```python
+s=input("请输入字符串：")
+class Solution:
+    def isValid(self, s:str)->bool:
+        dic={'(':')','[':']','{':'}'}
+        stack=[]
+        for c in s:
+            if c in dic:
+                stack.append(c)
+            elif not stack :
+                return False
+            elif dic[stack.pop()]!=c:  #栈空的时候绝对不能 pop
+                return False
+        return not stack
+a=Solution()
+print(a.isValid(s))
+```
+# 贪心算法
+## 1.买卖股票的最佳时机
+题目：
+
 # 暂存区
+
 ## 合并两个有序数组
 给定两个有序数组 nums1 和 nums2 ，将 nums2 合并到 nums1 中，使 nums1 成为一个有序数组。
 ```python

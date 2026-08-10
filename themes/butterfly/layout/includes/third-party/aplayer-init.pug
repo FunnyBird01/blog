@@ -1,10 +1,17 @@
-//- 自动生成全局播放器初始化代码，从配置中读取歌曲列表
-if theme.aplayer && theme.aplayer.enable && theme.aplayer.audio
-  - const audioList = JSON.stringify(theme.aplayer.audio)
-  script.
-    function initGlobalPlayer() {
-      if (window.globalPlayer) return;
-      if (typeof APlayer !== 'undefined') {
+//- 自动生成全局播放器初始化代码
+//- 仅支持本地音频文件，不再接入在线音乐 API
+if theme.aplayer && theme.aplayer.enable
+  - const localAudio = theme.aplayer.audio || []
+  if localAudio.length > 0
+    script.
+      function initGlobalPlayer() {
+        if (window.globalPlayer) return;
+        if (typeof APlayer === 'undefined') {
+          setTimeout(initGlobalPlayer, 100);
+          return;
+        }
+
+        const localAudio = !{JSON.stringify(localAudio)};
         const ap = new APlayer({
           container: document.getElementById('global-aplayer'),
           fixed: false,
@@ -15,11 +22,8 @@ if theme.aplayer && theme.aplayer.enable && theme.aplayer.audio
           order: 'list',
           preload: 'auto',
           volume: 0.7,
-          audio: !{audioList}
+          audio: localAudio
         });
         window.globalPlayer = ap;
-      } else {
-        setTimeout(initGlobalPlayer, 100);
       }
-    }
-    initGlobalPlayer();
+      initGlobalPlayer();

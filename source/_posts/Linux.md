@@ -1,5 +1,6 @@
 ---
 title: Linux
+date: 2026-08-03 23:45:16
 categories:
 - 开发必备
 cover: "https://cdn-icons-png.flaticon.com/128/15465/15465695.png"

@@ -17,6 +17,8 @@ aplayer: true
 
 ### 添加音乐
 
+**方式一：本地音乐**
+
 将你的 MP3 格式音频文件放入 `source/music/audio/` 目录下，然后在 `_config.butterfly.yml` 的 `aplayer.audio` 配置中添加新歌曲：
 
 ```yaml
