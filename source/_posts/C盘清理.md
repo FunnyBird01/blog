@@ -1,7 +1,7 @@
 ---
 title: "C盘清理"
 date: 2026-07-23 15:38:09
-cover: images/leetcode/cover.png
+cover: https://cdn.jsdelivr.net/gh/FunnyBird01/hexo-images@main/img/1.png
 ---
 # WinSxS 更新清理
 1. 管理员身份打开命令提示符 / PowerShell

@@ -1,6 +1,4 @@
-link(rel='stylesheet' href=url_for(theme.asset.aplayer_css) media="print" onload="this.media='all'")
-script(src=url_for(theme.asset.aplayer_js))
-script(src=url_for(theme.asset.meting_js))
+//- PJAX 下 APlayer 生命周期管理，不再重复加载 CSS/JS（已在 head 加载）
 if theme.pjax.enable
   script.
     (() => {

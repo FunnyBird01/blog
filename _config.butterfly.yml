@@ -230,12 +230,12 @@ post_copyright:
 
 # Sponsor/reward
 reward:
-  enable: fasle
-  text: 'If you like this article, please support me.'
+  enable: true
+  text: '如果你有困惑，可以写信给我1004737057@qq.com，我会尽快回复你'
   QR_code:
-     - img: /images/wechat.jpg
-    #   link:
-    #   text: wechat
+    - img: /images/wechat.jpg 
+      link:
+      text: wechat
     # - img: /img/alipay.jpg
     #   link:
     #   text: alipay
@@ -314,7 +314,7 @@ aside:
       link: https://github.com/FunnyBird01
   card_announcement:
     enable: true
-    content: 网站开发、程序设计
+    content: 理论成立，实践为王
     
     
   card_recent_post:
@@ -322,7 +322,7 @@ aside:
     # If set 0 will show all
     limit: 5
     # Sort: date / updated
-    sort: date
+    sort: updated
     sort_order:
   
   card_newest_comments:
@@ -481,7 +481,7 @@ busuanzi:
 math:
   # Choose: mathjax, katex
   # Leave it empty if you don't need math
-  use:
+  use: mathjax
   per_page: true
   hide_scrollbar: false
 

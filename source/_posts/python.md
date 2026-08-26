@@ -1,7 +1,7 @@
 ---
 title: python
 date: 2026-08-03 23:45:16
-cover: https://cdn-icons-png.flaticon.com/256/11933/11933136.png
+cover: https://cdn.jsdelivr.net/gh/FunnyBird01/hexo-images@main/img/python1.png
 ---
 # 深浅拷贝
 ```python
@@ -142,3 +142,5 @@ df.to_excel("处理后结果.xlsx", index=False)
 df.to_csv("处理后结果.csv", index=False, encoding="utf-8")
 
 ```
+
+# requests

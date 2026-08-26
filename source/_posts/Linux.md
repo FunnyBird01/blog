@@ -3,7 +3,8 @@ title: Linux
 date: 2026-08-03 23:45:16
 categories:
 - 开发必备
-cover: "https://cdn-icons-png.flaticon.com/128/15465/15465695.png"
+cover: "https://cdn.jsdelivr.net/gh/FunnyBird01/hexo-images@main/img/abc.png"
+aside_cover: "https://cdn-icons-png.flaticon.com/128/15465/15465695.png"
 ---
 # linxu
 Linux 是一款免费、开源的操作系统内核，和 Windows、macOS 一样，用来管理电脑硬件、运行软件。

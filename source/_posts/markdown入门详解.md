@@ -3,7 +3,7 @@ title: Markdown与hexo使用详解
 date: 2026-07-23 15:38:09
 categories:
   - 开发必备
-cover: images/leetcode/cover.png
+cover: https://cdn.jsdelivr.net/gh/FunnyBird01/hexo-images@main/img/markdown.png
 ---
 # 一级标题
 
@@ -53,7 +53,10 @@ print("py演示")
 语法：! [图片描述](图片地址)  
 
 ---
-
+# hexo
+## 封面
+首页文章封面（中间大图）	宽自适应 + 高固定 230px	≈ 4:1（很扁的长条）	❌ 上下被大量裁切，只剩中间一条	1920×480、1600×400
+侧边栏最新文章（小图）	4em × 4em ≈ 64px见方	1:1（正方形）	❌ 左右两边被裁切	500×500、800×800
 ## 让内容更显眼（Butterfly 标签插件）
 
 ### 1. 高亮标记 (Mark)

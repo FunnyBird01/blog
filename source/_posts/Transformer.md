@@ -1,7 +1,8 @@
 ---
-title: Transformer
+title: Transformer（变形金刚）
 date: 2026-07-23 15:38:09
-categories: [大模型应用、agent开发]
+categories: 
+  - agent
 cover: images/leetcode/cover.png
 ---
 # Transformer是什么？
